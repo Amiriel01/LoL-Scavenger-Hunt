@@ -5,7 +5,7 @@ import Game from './Game';
 import HiddenForm from "./HiddenForm";
 import Leaderboard from "./Leaderboard";
 import StartPage from "./StartPage";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function App() {
 
