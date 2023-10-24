@@ -99,3 +99,17 @@
   font-size: 2em;
   font-weight: bold;
 }
+
+#gameboard-image-row {
+  width: 100vw;
+  align-items: center;
+  background-color: rgb(47, 79, 79);
+  padding: 1rem;
+  margin:0;
+}
+
+#gameboard-image {
+  width: 100vw;
+  margin-left: auto;
+  margin-right: auto;
+}

@@ -6,13 +6,14 @@ import amumu from "./images/amumu.png";
 import lulu from "./images/lulu.png";
 import fizz from "./images/fizz.png";
 import rammus from "./images/rammus.png";
+import lolbackground from "./images/lolbackground.png"
 import { Link } from "react-router-dom";
 
 export default function Game() {
     return (
         <Row>
             <Row id="game-header">
-                <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={1}id="game-find">
+                <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={1} id="game-find">
                     Find:
                 </Col>
                 <Col xs={12} sm={6} md={3} lg={3} xl={3} xxl={1} id="game-image" className="p-3">
@@ -34,6 +35,11 @@ export default function Game() {
                 </Col>
                 <Col xs={12} sm={6} md={6} lg={6} xl={6} xxl={2} id="game-timer">
                     Timer
+                </Col>
+            </Row>
+            <Row id="gameboard-image-row">
+                <Col >
+                    <img id="gameboard-image" className="img-fluid" src={lolbackground} alt="Gameboard Image" />
                 </Col>
             </Row>
         </Row>
