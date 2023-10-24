@@ -2,7 +2,6 @@ import React from "react";
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-// import lolbackground from "./images/lolbackground.png";
 import amumu from "./images/amumu.png";
 import lulu from "./images/lulu.png";
 import fizz from "./images/fizz.png";
