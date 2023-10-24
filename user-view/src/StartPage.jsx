@@ -29,20 +29,18 @@ export default function StartPage() {
                     <Col id="start-page-directions">
                         Find the following characters in the image to complete the scavenger hunt.
                         <Row>
-                            <div className="character-images">
-                                <Col>
-                                    <img id="character-image" className="img-fluid" src={amumu} alt="Amumu"></img>
-                                </Col>
-                                <Col>
-                                    <img id="character-image" className="img-fluid" src={lulu} alt="Lulu"></img>
-                                </Col>
-                                <Col>
-                                    <img id="character-image" className="img-fluid" src={fizz} alt="Fizz"></img>
-                                </Col>
-                                <Col>
-                                    <img id="character-image" className="img-fluid" src={rammus} alt="Rammus"></img>
-                                </Col>
-                            </div>
+                            <Col xs={12} sm={6} m={3}>
+                                <img id="character-image" className="img-fluid" src={amumu} alt="Amumu"></img>
+                            </Col>
+                            <Col xs={12} sm={6} m={3}>
+                                <img id="character-image" className="img-fluid" src={lulu} alt="Lulu"></img>
+                            </Col>
+                            <Col xs={12} sm={6} m={3}>
+                                <img id="character-image" className="img-fluid" src={fizz} alt="Fizz"></img>
+                            </Col>
+                            <Col xs={12} sm={6} m={3}>
+                                <img id="character-image" className="img-fluid" src={rammus} alt="Rammus"></img>
+                            </Col>
                         </Row>
                     </Col>
                 </Row>
