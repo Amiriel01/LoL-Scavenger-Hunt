@@ -8,8 +8,9 @@ import fizz from "./images/fizz.png";
 import rammus from "./images/rammus.png";
 import lolbackground from "./images/lolbackground.png"
 import { Link } from "react-router-dom";
+import Timer from "./Timer";
 
-export default function Game() {
+export default function Game({seconds}) {
     return (
         <Row>
             <Row id="game-header">
@@ -34,7 +35,7 @@ export default function Game() {
                     </Link>
                 </Col>
                 <Col xs={12} sm={6} md={6} lg={6} xl={6} xxl={2} id="game-timer">
-                    Timer
+                   {`Timer: ${seconds}`}
                 </Col>
             </Row>
             <Row id="gameboard-image-row">
