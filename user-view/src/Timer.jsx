@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import Row from "react-bootstrap/esm/Row";
 
 export default function Timer() {
-    const [seconds, setSectonds] = useState(0);
-    const [timerActive, setTimerActive] = useState(false);
+    // const [seconds, setSectonds] = useState(0);
+    // const [timerActive, setTimerActive] = useState(false);
 
     function toggle() {
         setTimerActive(!timerActive);
