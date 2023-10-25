@@ -8,7 +8,7 @@ import fizz from "./images/fizz.png";
 import rammus from "./images/rammus.png";
 import lolbackground from "./images/lolbackground.png"
 import { Link } from "react-router-dom";
-import Timer from "./Timer";
+import App from "./App";
 
 export default function Game({seconds}) {
     return (
