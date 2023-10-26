@@ -8,7 +8,12 @@ import fizz from "./images/fizz.png";
 import rammus from "./images/rammus.png";
 import { Link } from "react-router-dom";
 
-export default function StartPage() {
+
+export default function StartPage({ seconds, setSeconds, setTimerActive, timerActive }) {
+
+    function toggle() {
+        setTimerActive(!timerActive);
+    }
 
     return (
         <Row id="start-page-background-image">
@@ -27,7 +32,7 @@ export default function StartPage() {
                     <div id="start-page-directions">
                         <Row>
                             <Col>
-                                Find the following characters in the image to complete the scavenger hunt.
+                                Find the following characters in the image to complete the scavenger hunt. 
                             </Col>
                         </Row>
                         <Row>
@@ -53,7 +58,7 @@ export default function StartPage() {
                         <Row>
                             <Col>
                                 <Link to="/Game">
-                                    <Button id="start-page-button" variant="success">Play Game</Button>{' '}
+                                    <Button onClick={toggle}id="start-page-button" variant="success">Play Game</Button>{' '}
                                 </Link>
                             </Col>
                             <Col>

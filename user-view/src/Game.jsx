@@ -9,8 +9,24 @@ import rammus from "./images/rammus.png";
 import lolbackground from "./images/lolbackground.png"
 import { Link } from "react-router-dom";
 import App from "./App";
+import { useState, useEffect } from "react";
 
-export default function Game({seconds}) {
+export default function Game({seconds, setSeconds, timerActive, setTimerActive }) {
+    useEffect(() => {
+        let interval = null;
+        if (timerActive) {
+            //setInterval repeatedly executes the function on a set time delay//
+            interval = setInterval(() => {
+                setSeconds(seconds + 1);
+                clearInterval(interval);
+            }, 1000)
+        } else if (!timerActive && seconds !== 0) {
+            //clearInterval cancels the repeated setInterval call//
+            clearInterval(interval);
+        }
+    }, [timerActive, seconds]);
+    
+
     return (
         <Row>
             <Row id="game-header">
@@ -35,7 +51,7 @@ export default function Game({seconds}) {
                     </Link>
                 </Col>
                 <Col xs={12} sm={6} md={6} lg={6} xl={6} xxl={2} id="game-timer">
-                   {`Timer: ${seconds}`}
+                   {`Timer: ${seconds}s`}
                 </Col>
             </Row>
             <Row id="gameboard-image-row">

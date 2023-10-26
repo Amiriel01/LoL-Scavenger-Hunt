@@ -14,18 +14,25 @@ import { useState, useEffect } from "react";
 export default function App() {
   const [seconds, setSeconds] = useState(0);
   const [timerActive, setTimerActive] = useState(false);
-
   return (
     <>
       <Container fluid id="start-page-text-container">
+        {/* <Route path="*" element={<StartPage />} /> */}
         <Routes>
-          {/* <Route path="*" element={<StartPage />} /> */}
-          <Route path="*" element={<StartPage2 />} />
-          <Route path="/Game" element={<Game 
-          seconds={seconds}
-          // setSeconds={setSeconds}
-          // timerActive={timerActive}
-          // setTimerActive={setTimerActive}
+          <Route path="*" element={<StartPage2
+            setTimerActive={setTimerActive}
+            timerActive={timerActive}
+          />} />
+          <Route path="/Timer" Timer
+            seconds={seconds}
+            setSeconds={setSeconds}
+            timerActive={timerActive}
+            setTimerActive={setTimerActive} />
+          <Route path="/Game" element={<Game
+            seconds={seconds}
+            setSeconds={setSeconds}
+            timerActive={timerActive}
+            setTimerActive={setTimerActive}
           />} />
           <Route path="/HiddenForm" element={<HiddenForm />} />
           <Route path="/Leaderboard" element={<Leaderboard
