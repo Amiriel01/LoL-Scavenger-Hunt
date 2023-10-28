@@ -10,8 +10,23 @@ import lolbackground from "./images/lolbackground.png"
 import { Link } from "react-router-dom";
 import App from "./App";
 import { useState, useEffect } from "react";
+import Dropdown from "./Dropdown";
 
-export default function Game({seconds, setSeconds, timerActive, setTimerActive }) {
+export default function Game({seconds, setSeconds, timerActive }) {
+
+   const [dropdownShow, setDropdownShow] = useState(false);
+   const [dropdownPosition, setDropdownPosition] = useState({ x: 0, y: 0 })
+
+   const handleCharacterClick = (event) => {
+    let clickXCoord = event.pageX;
+    let clickYCoord = event.pageY;
+    setDropdownPosition({ x: clickXCoord, y: clickYCoord});
+    setDropdownShow(!dropdownShow);
+    console.log(clickXCoord);
+    console.log(clickYCoord);
+    console.log(setDropdownPosition);
+   }
+    
     useEffect(() => {
         let interval = null;
         if (timerActive) {
@@ -54,8 +69,11 @@ export default function Game({seconds, setSeconds, timerActive, setTimerActive }
                    {`Timer: ${seconds}s`}
                 </Col>
             </Row>
+            {dropdownShow && (
+                <Dropdown onSelect={handleCharacterClick} />
+            )}
             <Row id="gameboard-image-row">
-                <Col >
+                <Col>
                     <img id="gameboard-image" className="img-fluid" src={lolbackground} alt="Gameboard Image" />
                 </Col>
             </Row>

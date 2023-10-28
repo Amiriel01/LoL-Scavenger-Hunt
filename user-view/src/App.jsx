@@ -8,7 +8,6 @@ import StartPage from "./StartPage";
 import StartPage2 from "./StartPage2";
 import Container from 'react-bootstrap/Container';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Timer from './Timer';
 import { useState, useEffect } from "react";
 
 export default function App() {
