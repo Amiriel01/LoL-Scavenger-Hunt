@@ -12,21 +12,23 @@ import App from "./App";
 import { useState, useEffect } from "react";
 import Dropdown from "./Dropdown";
 
-export default function Game({seconds, setSeconds, timerActive }) {
+export default function Game({ seconds, setSeconds, timerActive }) {
 
-   const [dropdownShow, setDropdownShow] = useState(false);
-   const [dropdownPosition, setDropdownPosition] = useState({ x: 0, y: 0 })
+    const [dropdownShow, setDropdownShow] = useState(false);
+    const [dropdownPosition, setDropdownPosition] = useState({ x: 0, y: 0 })
 
-   const handleCharacterClick = (event) => {
-    let clickXCoord = event.pageX;
-    let clickYCoord = event.pageY;
-    setDropdownPosition({ x: clickXCoord, y: clickYCoord});
-    setDropdownShow(!dropdownShow);
-    console.log(clickXCoord);
-    console.log(clickYCoord);
-    console.log(setDropdownPosition);
-   }
-    
+    const handleCharacterClick = (event) => {
+        //pageX returns x coord in pixels
+        let clickXCoord = event.pageX;
+        //pageY returns the y coord in pixels
+        let clickYCoord = event.pageY;
+        setDropdownPosition({ x: clickXCoord, y: clickYCoord });
+        setDropdownShow(!dropdownShow);
+        console.log(clickXCoord);
+        console.log(clickYCoord);
+        console.log(dropdownPosition);
+    }
+
     useEffect(() => {
         let interval = null;
         if (timerActive) {
@@ -40,7 +42,7 @@ export default function Game({seconds, setSeconds, timerActive }) {
             clearInterval(interval);
         }
     }, [timerActive, seconds]);
-    
+
 
     return (
         <Row>
@@ -66,15 +68,22 @@ export default function Game({seconds, setSeconds, timerActive }) {
                     </Link>
                 </Col>
                 <Col xs={12} sm={6} md={6} lg={6} xl={6} xxl={2} id="game-timer">
-                   {`Timer: ${seconds}s`}
+                    {`Timer: ${seconds}s`}
                 </Col>
             </Row>
-            {dropdownShow && (
-                <Dropdown onSelect={handleCharacterClick} />
-            )}
+            <div hidden={!dropdownShow} className="show" style={{
+                left: `${dropdownPosition.x - 25}px`,
+                top: `${dropdownPosition.y - 25}px`,
+            }}>
+                <div hidden={!dropdownShow}>
+                    {dropdownShow && (
+                        <Dropdown onSelect={handleCharacterClick} />
+                    )}
+                </div>
+            </div>
             <Row id="gameboard-image-row">
                 <Col>
-                    <img id="gameboard-image" className="img-fluid" src={lolbackground} alt="Gameboard Image" />
+                    <img onClick={handleCharacterClick} id="gameboard-image" className="img-fluid" src={lolbackground} alt="Gameboard Image" />
                 </Col>
             </Row>
         </Row>
