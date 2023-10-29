@@ -13,6 +13,7 @@ import { useState, useEffect } from "react";
 export default function App() {
   const [seconds, setSeconds] = useState(0);
   const [timerActive, setTimerActive] = useState(false);
+  
   return (
     <>
       <Container fluid id="start-page-text-container">

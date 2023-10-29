@@ -12,7 +12,7 @@ import App from "./App";
 import { useState, useEffect } from "react";
 import Dropdown from "./Dropdown";
 
-export default function Game({ seconds, setSeconds, timerActive }) {
+export default function Game({ seconds, setSeconds, timerActive, setTimerActive }) {
 
     const [dropdownShow, setDropdownShow] = useState(false);
     const [dropdownPosition, setDropdownPosition] = useState({ x: 0, y: 0 })
@@ -43,6 +43,9 @@ export default function Game({ seconds, setSeconds, timerActive }) {
         }
     }, [timerActive, seconds]);
 
+    function toggle() {
+        setTimerActive(!timerActive);
+    }
 
     return (
         <Row>
@@ -64,7 +67,7 @@ export default function Game({ seconds, setSeconds, timerActive }) {
                 </Col>
                 <Col xs={12} sm={6} md={6} lg={6} xl={6} xxl={5} id="home-button-container">
                     <Link to="/StartPage2">
-                        <Button id="start-page-button" variant="success">Return Home</Button>{' '}
+                        <Button onClick={toggle}id="start-page-button" variant="success">Return Home</Button>{' '}
                     </Link>
                 </Col>
                 <Col xs={12} sm={6} md={6} lg={6} xl={6} xxl={2} id="game-timer">
