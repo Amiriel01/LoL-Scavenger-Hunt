@@ -71,7 +71,7 @@ export default function Game({ seconds, setSeconds, timerActive }) {
                     {`Timer: ${seconds}s`}
                 </Col>
             </Row>
-            <div hidden={!dropdownShow} className="show" style={{
+            <div hidden={!dropdownShow} id="show" style={{
                 left: `${dropdownPosition.x - 25}px`,
                 top: `${dropdownPosition.y - 25}px`,
             }}>
