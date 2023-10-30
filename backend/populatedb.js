@@ -30,13 +30,9 @@ async function main() {
   mongoose.connection.close();
 }
 
-// Pass the index to the ...Create functions so that, for example,
-// category[0] will always be the same category, regardless of the order
-// in which the elements of promise.all's argument complete.
-async function characterCoordinatesCreate(index, x, y) {
-  const characterCoordinates = new CharacterCoordinates({ x: x, y: y });
+async function characterCoordinatesCreate(charName, x, y) {
+  const characterCoordinates = new CharacterCoordinates({ charName, x: x, y: y });
   await characterCoordinates.save();
-  characterCoordinates[index] = characterCoordinates;
   console.log(`Added character coordinates: ${x, y}`);
 }
 
@@ -46,20 +42,19 @@ async function leaderboardCreate(name, time) {
     time: time
   };
 
-  const item = new Leaderboard(leaderboardDetail);
+  const leaderboard = new Leaderboard(leaderboardDetail);
 
   await leaderboard.save();
-  leaderboard[index] = leaderboard;
   console.log(`Added leaderboard item: ${leaderboard}`);
 }
 
 async function getCharacterCoordinates() {
   console.log("Adding character coordinates");
   await Promise.all([
-    characterCoordinatesCreate(0, 234, 682),
-    characterCoordinatesCreate(1, 1418, 670),
-    characterCoordinatesCreate(2, 1400, 606),
-    characterCoordinatesCreate(3, 698, 553),
+    characterCoordinatesCreate("Amumu", 234, 682),
+    characterCoordinatesCreate("Lulu", 1418, 670),
+    characterCoordinatesCreate("Fizz", 1400, 606),
+    characterCoordinatesCreate("Rammus", 698, 553),
   ]);
 }
 
