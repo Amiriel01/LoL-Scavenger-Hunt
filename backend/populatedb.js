@@ -30,8 +30,8 @@ async function main() {
   mongoose.connection.close();
 }
 
-async function characterCoordinatesCreate(charName, x, y) {
-  const characterCoordinates = new CharacterCoordinates({ charName, x: x, y: y });
+async function characterCoordinatesCreate(characterName, x, y) {
+  const characterCoordinates = new CharacterCoordinates({ characterName, x: x, y: y });
   await characterCoordinates.save();
   console.log(`Added character coordinates: ${x, y}`);
 }
