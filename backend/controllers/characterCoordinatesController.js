@@ -32,25 +32,4 @@ exports.character_coordinates = asyncHandler(async (req, res, next) => {
         console.log(false)
         res.json(false)
     }
-    // let minX = characterCoordinates.minX;
-    // let maxX = characterCoordinates.x+50;
-    // let minY = characterCoordinates.y-50;
-    // let maxY = characterCoordinates.y+50;
-    // let x = req.body.x;
-    // let y = req.body.y;
-
-    // console.log(characterCoordinates)
-    // console.log(req.body.characterName)
-    // console.log(minX)
-    // console.log(maxX)
-    // console.log(minY)
-    // console.log(maxY)
-    // console.log(req.body.x)
-    // console.log(req.body.y)
-
-    // if ((x > minX && x < maxX) && (y > minY && y < maxY)) {
-    //     res.json(true)
-    // } else {
-    //     res.json(false)
-    // }
 })
