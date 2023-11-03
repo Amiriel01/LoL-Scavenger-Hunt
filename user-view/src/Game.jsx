@@ -11,22 +11,43 @@ import { Link } from "react-router-dom";
 import App from "./App";
 import { useState, useEffect } from "react";
 import Dropdown from "./Dropdown";
+import LeaderboardForm from "./LeaderboardForm";
+import axios from "axios";
 
 export default function Game({ seconds, setSeconds, timerActive, setTimerActive }) {
 
     const [dropdownShow, setDropdownShow] = useState(false);
-    const [dropdownPosition, setDropdownPosition] = useState({ x: 0, y: 0 })
+    const [dropdownPosition, setDropdownPosition] = useState({ x: 0, y: 0 });
+    const [leaderboardShow, setLeaderboardShow] = useState(false);
 
-    const handleCharacterClick = (event) => {
-        //pageX returns x coord in pixels
+    const handleCharacterClick = (event, characterName) => {
+        // event.preventDefault(event);
+        // console.log(event)
+        // console.log(`Character Name: ${characterName}`);
+        // console.log(`Page X Location: ${event.pageX}`);
+        // console.log(`Page Y Location: ${event.pageY}`);
+
         let clickXCoord = event.pageX;
-        //pageY returns the y coord in pixels
         let clickYCoord = event.pageY;
         setDropdownPosition({ x: clickXCoord, y: clickYCoord });
         setDropdownShow(!dropdownShow);
-        console.log(clickXCoord);
-        console.log(clickYCoord);
-        console.log(dropdownPosition);
+
+        const characterCoordinateData = {
+            characterName: characterName,
+            x: dropdownPosition.x,
+            y: dropdownPosition.y,
+        }
+
+        // console.log(`Dropdown Position X: ${dropdownPosition.x}`);
+        // console.log(`Dropdown Position Y: ${dropdownPosition.y}`);
+
+        if (!characterName) return
+
+        axios.post("http://localhost:3000/routers/characterCoordinates", characterCoordinateData).then((response) => {
+            console.log(response.status, response.data)
+        })
+
+        // console.log(characterCoordinateData);
     }
 
     useEffect(() => {
@@ -67,7 +88,7 @@ export default function Game({ seconds, setSeconds, timerActive, setTimerActive 
                 </Col>
                 <Col xs={12} sm={6} md={6} lg={6} xl={6} xxl={5} id="home-button-container">
                     <Link to="/StartPage2">
-                        <Button onClick={toggle}id="start-page-button" variant="success">Return Home</Button>{' '}
+                        <Button onClick={toggle} id="start-page-button" variant="success">Return Home</Button>{' '}
                     </Link>
                 </Col>
                 <Col xs={12} sm={6} md={6} lg={6} xl={6} xxl={2} id="game-timer">
@@ -89,6 +110,11 @@ export default function Game({ seconds, setSeconds, timerActive, setTimerActive 
                     <img onClick={handleCharacterClick} id="gameboard-image" className="img-fluid" src={lolbackground} alt="Gameboard Image" />
                 </Col>
             </Row>
+            <div hidden={!leaderboardShow}id="leaderboard-show">
+                <div hidden={!leaderboardShow}>
+                    <LeaderboardForm />
+                </div>
+            </div>
         </Row>
     )
 }

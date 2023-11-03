@@ -30,10 +30,10 @@ async function main() {
   mongoose.connection.close();
 }
 
-async function characterCoordinatesCreate(characterName, minX, maxX, minY, maxY) {
-  const characterCoordinates = new CharacterCoordinates({ characterName, minX, maxX, minY, maxY });
+async function characterCoordinatesCreate(characterName, x, y) {
+  const characterCoordinates = new CharacterCoordinates({ characterName, x, y });
   await characterCoordinates.save();
-  console.log(`Added character coordinates: ${characterName, minX, maxX, minY, maxY}`);
+  console.log(`Added character coordinates: ${characterName, x, y}`);
 }
 
 async function leaderboardCreate(name, time) {
@@ -51,10 +51,10 @@ async function leaderboardCreate(name, time) {
 async function getCharacterCoordinates() {
   console.log("Adding character coordinates");
   await Promise.all([
-    characterCoordinatesCreate("Amumu", 184, 284, 632, 732),
-    characterCoordinatesCreate("Lulu", 1368, 1468, 620, 720),
-    characterCoordinatesCreate("Fizz", 1350, 1450, 556, 656),
-    characterCoordinatesCreate("Rammus", 648, 749, 503, 603),
+    characterCoordinatesCreate("Amumu", 231, 659),
+    characterCoordinatesCreate("Lulu", 1404, 641),
+    characterCoordinatesCreate("Fizz", 1385, 574),
+    characterCoordinatesCreate("Rammus", 684, 530),
   ]);
 }
 

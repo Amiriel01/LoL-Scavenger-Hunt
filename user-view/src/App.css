@@ -146,3 +146,20 @@ li:hover {
   width: 50px;
   height: 50px;
 }
+
+/*Leaderboard Form*/
+#leaderboard-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 40%;
+}
+
+#leaderboard-show {
+  position: absolute;
+}
+
+/*Leaderboard Page*/
+
+

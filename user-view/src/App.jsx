@@ -2,7 +2,7 @@ import './App.css'
 import { Route, Routes } from 'react-router-dom';
 import React from 'react';
 import Game from './Game';
-import HiddenForm from "./HiddenForm";
+import HiddenForm from "./LeaderboardForm";
 import Leaderboard from "./Leaderboard";
 import StartPage from "./StartPage";
 import StartPage2 from "./StartPage2";
