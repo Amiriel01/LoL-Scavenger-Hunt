@@ -109,9 +109,11 @@ export default function Game({ seconds, setSeconds, timerActive, setTimerActive 
                     <img id="character-image" className="img-fluid" src={rammus} alt="Rammus"></img>
                 </Col>
                 <Col xs={12} sm={6} md={6} lg={6} xl={6} xxl={5} id="home-button-container">
-                    <Link to="/StartPage2">
-                        <Button onClick={toggle} id="start-page-button" variant="success">Return Home</Button>{' '}
-                    </Link>
+                    <div hidden={gameOver === true}>
+                        <Link to="/StartPage2">
+                            <Button onClick={toggle} id="start-page-button" variant="success">Return Home</Button>{' '}
+                        </Link>
+                    </div>
                 </Col>
                 <Col xs={12} sm={6} md={6} lg={6} xl={6} xxl={2} id="game-timer">
                     {`Timer: ${seconds}s`}
@@ -133,9 +135,9 @@ export default function Game({ seconds, setSeconds, timerActive, setTimerActive 
                 </Col>
             </Row>
             <div hidden={!gameOver} id="leaderboard-show">
-                    <LeaderboardForm 
+                <LeaderboardForm
                     seconds={seconds}
-                    />
+                />
             </div>
         </Row>
     )
