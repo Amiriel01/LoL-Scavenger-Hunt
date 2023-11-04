@@ -18,7 +18,6 @@ export default function LeaderboardForm({ seconds }) {
             ...leaderboardEntry,
             [name]: value,
         });
-
     }
 
     const navigate = useNavigate();

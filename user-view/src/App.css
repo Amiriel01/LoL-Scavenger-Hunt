@@ -75,7 +75,7 @@
   align-items: center;
   background-color: rgb(47, 79, 79);
   padding: 1rem;
-  margin:0;
+  margin: 0;
 }
 
 #game-find {
@@ -105,7 +105,7 @@
   align-items: center;
   background-color: rgb(47, 79, 79);
   padding: 1rem;
-  margin:0;
+  margin: 0;
 }
 
 #gameboard-image {
@@ -206,5 +206,53 @@ li:hover {
 }
 
 /*Leaderboard Page*/
+#leaderboard-background-image {
+  background-image: url(images/lolbackground.png);
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
+#leaderboard-page-container {
+  background-color: rgb(47, 79, 79, .9);
+  border: 8px solid rgb(207, 181, 59);
+  width: 60vw;
+  height: 80vh;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+}
 
+#leaderboard-header {
+  height: 10%;
+}
+
+#leaderboard-title {
+  color: rgb(207, 181, 59);
+  font-weight: bold;
+  text-align: center;
+  margin-top: 5rem;
+  font-size: 4rem;
+  height: 3rem;
+}
+
+#leaderboard-entry-card {
+  margin-top: 2rem;
+  color: rgb(207, 181, 59);
+  font-weight: bold;
+  font-size: 2rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+#name-time-container {
+  display: flex;
+  justify-content: space-around;
+  width: 40rem;
+}
+
+#entry-time {
+  width: 20rem;
+}
