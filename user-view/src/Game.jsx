@@ -59,7 +59,8 @@ export default function Game({ seconds, setSeconds, timerActive, setTimerActive 
 
     function isGameOver() {
         if ((amumuFound === true) && (luluFound === true) && (fizzFound === true) && (rammusFound === true)) {
-            setGameOver(true)
+            setGameOver(true);
+            setTimerActive(false)
             console.log("Game is Over")
         } else {
             return
