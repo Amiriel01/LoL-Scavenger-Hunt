@@ -18,14 +18,14 @@ export default function Game({ seconds, setSeconds, timerActive, setTimerActive 
 
     const [dropdownShow, setDropdownShow] = useState(false);
     const [dropdownPosition, setDropdownPosition] = useState({ x: 0, y: 0 });
-    const [leaderboardShow, setLeaderboardShow] = useState(false);
+    // const [leaderboardShow, setLeaderboardShow] = useState(false);
+    const [amumuFound, setAmumuFound] = useState(false);
+    const [luluFound, setLuluFound] = useState(false);
+    const [fizzFound, setFizzFound] = useState(false);
+    const [rammusFound, setRammusFound] = useState(false);
+    const [gameOver, setGameOver] = useState(false);
 
     const handleCharacterClick = (event, characterName) => {
-        // event.preventDefault(event);
-        // console.log(event)
-        // console.log(`Character Name: ${characterName}`);
-        // console.log(`Page X Location: ${event.pageX}`);
-        // console.log(`Page Y Location: ${event.pageY}`);
 
         let clickXCoord = event.pageX;
         let clickYCoord = event.pageY;
@@ -38,17 +38,37 @@ export default function Game({ seconds, setSeconds, timerActive, setTimerActive 
             y: dropdownPosition.y,
         }
 
-        // console.log(`Dropdown Position X: ${dropdownPosition.x}`);
-        // console.log(`Dropdown Position Y: ${dropdownPosition.y}`);
-
         if (!characterName) return
 
         axios.post("http://localhost:3000/routers/characterCoordinates", characterCoordinateData).then((response) => {
             console.log(response.status, response.data)
+            console.log(characterName)
+            if (characterName === "Amumu" && response.data === true) {
+                setAmumuFound(true);
+            } else if (characterName === "Lulu" && response.data === true) {
+                setLuluFound(true);
+            } else if (characterName === "Fizz" && response.data === true) {
+                setFizzFound(true);
+            } else if (characterName === "Rammus" && response.data === true) {
+                setRammusFound(true);
+            } else {
+                return
+            }
         })
-
-        // console.log(characterCoordinateData);
     }
+
+    function isGameOver() {
+        if ((amumuFound === true) && (luluFound === true) && (fizzFound === true) && (rammusFound === true)) {
+            setGameOver(true)
+            console.log("Game is Over")
+        } else {
+            return
+        }
+    }
+
+    useEffect(() => {
+        isGameOver();
+    }, [amumuFound, fizzFound, luluFound, rammusFound])
 
     useEffect(() => {
         let interval = null;
@@ -110,10 +130,8 @@ export default function Game({ seconds, setSeconds, timerActive, setTimerActive 
                     <img onClick={handleCharacterClick} id="gameboard-image" className="img-fluid" src={lolbackground} alt="Gameboard Image" />
                 </Col>
             </Row>
-            <div hidden={!leaderboardShow}id="leaderboard-show">
-                <div hidden={!leaderboardShow}>
+            <div hidden={!gameOver} id="leaderboard-show">
                     <LeaderboardForm />
-                </div>
             </div>
         </Row>
     )
