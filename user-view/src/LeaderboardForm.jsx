@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 export default function LeaderboardForm({ seconds }) {
     const leaderboardEntryInitialValues = {
@@ -20,6 +21,8 @@ export default function LeaderboardForm({ seconds }) {
 
     }
 
+    const navigate = useNavigate();
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -30,6 +33,8 @@ export default function LeaderboardForm({ seconds }) {
         setLeaderboardEntry(leaderboardEntryInitialValues)
 
         axios.post("http://localhost:3000/routers/leaderboard", leaderboardEntryData)
+
+        navigate("/Leaderboard");
     }
 
     return (
