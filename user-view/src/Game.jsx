@@ -60,7 +60,8 @@ export default function Game({ seconds, setSeconds, timerActive, setTimerActive 
     function isGameOver() {
         if ((amumuFound === true) && (luluFound === true) && (fizzFound === true) && (rammusFound === true)) {
             setGameOver(true);
-            setTimerActive(false)
+            setTimerActive(false);
+            setDropdownShow(false);
             console.log("Game is Over")
         } else {
             return
@@ -132,7 +133,9 @@ export default function Game({ seconds, setSeconds, timerActive, setTimerActive 
                 </Col>
             </Row>
             <div hidden={!gameOver} id="leaderboard-show">
-                    <LeaderboardForm />
+                    <LeaderboardForm 
+                    seconds={seconds}
+                    />
             </div>
         </Row>
     )

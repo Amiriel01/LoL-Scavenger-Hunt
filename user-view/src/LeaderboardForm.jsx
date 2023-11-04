@@ -36,7 +36,7 @@ export default function LeaderboardForm({ seconds }) {
         <>
             <div id="leaderboard-form-container">
                 <h1 id="leaderboard-congrats">
-                    CONGRATULATIONS
+                    CONGRATULATIONS 
                 </h1>
                 <h2 id="leaderboard-time">
                     You completed the challenge in {seconds} seconds!
@@ -47,13 +47,14 @@ export default function LeaderboardForm({ seconds }) {
                 <form
                     id="leaderboard-form"
                     onSubmit={handleSubmit}>
-                    <input
+                    <input id="leaderboard-form-input"
                         type="text"
                         name="name"
+                        placeholder="Enter Player Name"
                         value={leaderboardEntry.name}
                         onChange={handleChange}
                     />
-                    <button type="submit">Add to Leaderboard</button>
+                    <button id="leaderboard-button" type="submit">Add to Leaderboard</button>
                 </form>
             </div>
         </>
