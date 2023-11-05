@@ -15,14 +15,17 @@ exports.leaderboard_item_create = [
         .isLength({ min: 1 })
         .isLength({ max: 20 })
         .escape(),
+    body("time", "Time cannot be blank."),
+        
 
     asyncHandler(async (req, res, next) => {
         const errors = validationResult(req);
 
         const leaderboard_item = new Leaderboard({
             name: req.body.name,
+            time: req.body.time,
         });
-        
+
         if (!errors.isEmpty()) {
             errors.array()
             res.json(leaderboard_item)
