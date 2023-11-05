@@ -4,6 +4,8 @@ import { useLocation } from 'react-router-dom';
 import Col from "react-bootstrap/esm/Col";
 import Row from 'react-bootstrap/Row';
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
 export default function Leaderboard() {
 
@@ -34,21 +36,26 @@ export default function Leaderboard() {
                         <Row>
                             <Col>
                                 <h1 id="leaderboard-title">
-                                    LoL Scavenger Hunt 
+                                    LoL Scavenger Hunt
                                 </h1>
                             </Col>
                         </Row>
+                        <Row id="leaderboard-button-row">
+                            <Col id="leaderboard-button-container">
+                                <Link to="/StartPage2">
+                                    <Button id="start-page-button" >Return Home</Button>
+                                </Link>
+                            </Col>
+                        </Row>
                     </Row>
+
                     <div className="all-leaderboard-entries-container">
                         {allLeaderboardEntries.map((entry) => {
                             return <div id="leaderboard-entry-card"
                                 key={entry._id} >
                                 <Row id="name-time-container">
-                                    <Col xl={1}>
-                                        <p>{entry.name}</p>
-                                    </Col>
-                                    <Col xl={1} id="entry-time">
-                                        <p>{entry.time} seconds</p>
+                                    <Col>
+                                        <p>{entry.name}: {entry.time}s</p>
                                     </Col>
                                 </Row>
                             </div>
@@ -58,5 +65,4 @@ export default function Leaderboard() {
             </Row>
         </>
     )
-
 }
