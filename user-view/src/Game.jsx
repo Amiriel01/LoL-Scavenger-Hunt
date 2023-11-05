@@ -97,16 +97,36 @@ export default function Game({ seconds, setSeconds, timerActive, setTimerActive 
                     Find:
                 </Col>
                 <Col xs={12} sm={6} md={3} lg={3} xl={3} xxl={1} id="game-image" className="p-3">
-                    <img id="character-image" className="img-fluid" src={amumu} alt="Amumu"></img>
+                    <div id="character-name-container">
+                        <img id="character-image" className="img-fluid" src={amumu} alt="Amumu"></img>
+                        <p id="character-name">
+                            Amumu
+                        </p>
+                    </div>
                 </Col>
                 <Col xs={12} sm={6} md={3} lg={3} xl={3} xxl={1} id="game-image" className="p-3">
-                    <img id="character-image" className="img-fluid" src={lulu} alt="Lulu"></img>
+                    <div id="character-name-container">
+                        <img id="character-image" className="img-fluid" src={lulu} alt="Lulu"></img>
+                        <p id="character-name">
+                            Lulu
+                        </p>
+                    </div>
                 </Col>
                 <Col xs={12} sm={6} md={3} lg={3} xl={3} xxl={1} id="game-image" className="p-3">
-                    <img id="character-image" className="img-fluid" src={fizz} alt="Fizz"></img>
+                    <div id="character-name-container">
+                        <img id="character-image" className="img-fluid" src={fizz} alt="Fizz"></img>
+                        <p id="character-name">
+                            Fizz
+                        </p>
+                    </div>
                 </Col>
                 <Col xs={12} sm={6} md={3} lg={3} xl={3} xxl={1} id="game-image" className="p-3">
-                    <img id="character-image" className="img-fluid" src={rammus} alt="Rammus"></img>
+                    <div id="character-name-container">
+                        <img id="character-image" className="img-fluid" src={rammus} alt="Rammus"></img>
+                        <p id="character-name">
+                            Rammus
+                        </p>
+                    </div>
                 </Col>
                 <Col xs={12} sm={6} md={6} lg={6} xl={6} xxl={5} id="home-button-container">
                     <div hidden={gameOver === true}>

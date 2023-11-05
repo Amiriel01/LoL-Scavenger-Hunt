@@ -89,6 +89,11 @@
   text-align: center;
 }
 
+#character-name {
+  color: rgb(207, 181, 59);
+  font-weight: bold;
+}
+
 #home-button-container {
   text-align: center;
 }
