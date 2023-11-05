@@ -22,7 +22,7 @@ Once all characters have been found the leaderboard form will trigger for the pl
 
 ![](README-Images/game4.png)
 
-The leaderboard page shows the players who have completed the game and their time from least to greatest. The player list is sorted before being brought to the frontend so it is up to date when the new user goes from the game page to the leaderboard page.
+The leaderboard page shows the players who have completed the game and their time from least to greatest. The player list is sorted before being sent to the frontend so it is up to date when the new user goes from the game page to the leaderboard page.
 
 ![](README-Images/leaderboard.png)
 
