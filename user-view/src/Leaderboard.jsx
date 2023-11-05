@@ -36,7 +36,7 @@ export default function Leaderboard() {
                         <Row>
                             <Col>
                                 <h1 id="leaderboard-title">
-                                    LoL Scavenger Hunt
+                                    LoL Scavenger Hunt Leaderboard
                                 </h1>
                             </Col>
                         </Row>
