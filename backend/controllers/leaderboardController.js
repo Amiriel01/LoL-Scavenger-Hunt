@@ -5,7 +5,7 @@ const { body, validationResult } = require("express-validator");
 
 exports.leaderboard_details = asyncHandler(async (req, res, next) => {
     const leaderboardDetail = await Leaderboard.find().exec()
-
+    leaderboardDetail.sort((a, b) => a.time - b.time)
     res.json(leaderboardDetail)
 });
 
