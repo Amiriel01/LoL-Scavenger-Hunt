@@ -8,12 +8,17 @@ exports.character_coordinates = asyncHandler(async (req, res, next) => {
     console.log(req.body)
     const characterCoordinates = await CharacterCoordinates.findOne({characterName: req.body.characterName}).exec();
     console.log(characterCoordinates)
-    
-    let characterName = req.body.characterName;
-    let x = req.body.x;
-    let y = req.body.y;
 
-    console.log(characterCoordinates.x)
+    const masterWidth = 1501;
+    const masterHeight = 834;
+    let characterName = req.body.characterName;
+    let x = ((req.body.x/req.body.imageWidth) * masterWidth);
+    let y = ((req.body.y/req.body.imageHeight) * masterHeight);
+
+    console.log(x)
+    console.log(y)
+    console.log(req.body.imageWidth)
+    console.log(req.body.imageHeight)
 
     let boundingBox = 50;
     let minX = characterCoordinates.x-boundingBox;

@@ -29,14 +29,26 @@ export default function Game({ seconds, setSeconds, timerActive, setTimerActive 
 
         let clickXCoord = event.pageX;
         let clickYCoord = event.pageY;
+        let allCoordinates = document.getElementById("gameboard-image").getBoundingClientRect()
+        let imageWidth = allCoordinates.width;
+        let imageHeight = allCoordinates.height;
+
+        console.log(document.getElementById("gameboard-image").getBoundingClientRect())
+        console.log(imageWidth)
+        console.log(imageHeight)
+        console.log(dropdownPosition.x - allCoordinates.width);
+        console.log(dropdownPosition.y - allCoordinates.height)
         setDropdownPosition({ x: clickXCoord, y: clickYCoord });
         setDropdownShow(!dropdownShow);
 
         const characterCoordinateData = {
             characterName: characterName,
-            x: dropdownPosition.x,
-            y: dropdownPosition.y,
+            x: dropdownPosition.x - allCoordinates.x,
+            y: dropdownPosition.y - allCoordinates.y,
+            imageWidth: allCoordinates.width,
+            imageHeight: allCoordinates.height,
         }
+
 
         if (!characterName) return
 
